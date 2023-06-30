@@ -1,0 +1,20 @@
+@import '../../sass/main.scss';
+
+.houses_list{
+    @include flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    background-color: $color-tertiary;
+    padding: 50px;
+    border-radius: 25px;
+    width: 92%;
+    margin: 0 auto;
+    @media screen and (max-width: 1230px){
+        gap: 20px; 
+        padding:25px 15px;       
+    }
+    @media screen and (max-width: 550px){  
+        width: 100%;
+        padding: 20% 0%;
+    }
+}

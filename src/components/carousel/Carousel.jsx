@@ -1,0 +1,47 @@
+import './carousel.scss'
+import ArrowRight from '../../assets/chevron_carousel_right.png'
+import ArrowLeft from '../../assets/chevron_carousel_left.png'
+import { useState } from 'react'
+
+export default function Slider({imageSlider}) {
+
+    const [currentIndex, setCurrentIndex] = useState(0)
+
+    const nextPicture = () => {
+        if((currentIndex + 1) === imageSlider.length) {
+            setCurrentIndex(0)
+        } else {
+            setCurrentIndex(currentIndex + 1)
+        }
+            
+    }
+
+    const prevSlide = () => {
+        if((currentIndex -1) < 0) {
+            setCurrentIndex(imageSlider.length - 1)
+    } else {
+            setCurrentIndex(currentIndex -1)
+    }}
+
+    return (
+        <section style={{backgroundImage : `url(${imageSlider[currentIndex]})`}} className='carousel'>
+            {imageSlider.length > 1 && 
+                <>
+                    <img 
+                        className='carousel_arrow carousel_arrow_right' 
+                        src={ArrowRight} 
+                        alt="show next slider" 
+                        onClick={nextPicture}
+                    />
+                    <img 
+                        className='carousel_arrow carousel_arrow_left' 
+                        src={ArrowLeft} 
+                        alt="show previous slider" 
+                        onClick={prevSlide}
+                    />
+                    <p className='slideCount'>{currentIndex + 1} / {imageSlider.length}</p>
+                </>
+            } 
+        </section>
+    )
+}
