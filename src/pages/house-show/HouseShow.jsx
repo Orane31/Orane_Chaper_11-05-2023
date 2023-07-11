@@ -23,6 +23,7 @@ export default function HouseShow() {
 	}, [idAccomodation]);
 
 	const name = dataCurrentAccomodation[0].host.name.split(' '); 
+
 	const rating = dataCurrentAccomodation[0].rating;
 	const description  = dataCurrentAccomodation[0].description;
 	const equipments = dataCurrentAccomodation[0].equipments;
@@ -53,7 +54,7 @@ export default function HouseShow() {
 							<img src={dataCurrentAccomodation[0].host.picture} alt="host of this accomodation" />
 						</div>
 							
-						<div className="accomodation_content_host_stars">
+						<div className="accomodation_content_host_rating">
 							{[...Array(5)].map((star, index) => {
 								const ratingValue = index + 1;
 								return (
